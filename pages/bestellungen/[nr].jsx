@@ -105,7 +105,7 @@ export default function Bestellung({bestellung}) {
   }
 
   export async function getServerSideProps({params}){
-    const res = await axios.get(`http://localhost:3000/api/bestellungen/${params.nr}`)
+    const res = await axios.get(`https://liefermax-sebastian2979.vercel.app/api/bestellungen/${params.nr}`)
     return{
       props: {bestellung: res.data}
     }

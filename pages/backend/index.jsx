@@ -10,7 +10,7 @@ export default function index({ bestellungen }) {
     const statusUpdate = async (id, aktuellerStatus) => {
         try{
             if(aktuellerStatus <= 2){
-                await axios.put('http://localhost:3000/api/bestellungen/' + id, {status: aktuellerStatus + 1})
+                await axios.put('https://liefermax-sebastian2979.vercel.app/api/bestellungen/' + id, {status: aktuellerStatus + 1})
                 router.reload()
             }
         }catch(error){
@@ -20,7 +20,7 @@ export default function index({ bestellungen }) {
 
     const bestellungEntfernen = async (id) => {
         try{
-            await axios.delete('http://localhost:3000/api/bestellungen/' + id)
+            await axios.delete('https://liefermax-sebastian2979.vercel.app/api/bestellungen/' + id)
             router.reload()
         }catch(error){
             console.log(error)
@@ -71,7 +71,7 @@ export default function index({ bestellungen }) {
         }
       }
     }
-    const res = await axios.get(`http://localhost:3000/api/bestellungen`)
+    const res = await axios.get(`https://liefermax-sebastian2979.vercel.app/api/bestellungen`)
     return{
       props: {bestellungen: res.data}
     }
